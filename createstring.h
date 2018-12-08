@@ -15,7 +15,6 @@ char * makestring(int start, int end, char *content) {
 	}
 	
 	pword[inc] = '\0';
-	// pword[inc + 1] = '\0';
 
 	printf("\nWord: %s Add: %p\n", pword, &*pword);
 
