@@ -5,28 +5,15 @@
 #include <stdlib.h>
 
 char * strippunc(char *content) {
-	int i = 0;
-	int trigger = 0;
-	int length = strlen(content);
-	int backscale = 0;
-	for (i = 0; i < length + 1; i++) {
-		if (content[i] == '.' || content[i] == ',' || content[i] == '"' || content[i] == '\'' || content[i] == ':' || content[i] == ';' || content[i] == '?') {
-			content[i - backscale] = content[i + 1];
-			trigger = 1;
+	int i;
+
+	for (i = 0; content[i] != '\0'; i++) {
+		if ((content[i] >= 32 && content[i] <= 47) || (content[i] >= 58 && content[i] <= 64)) {
+			content[i] = '\0';
+			break;
 		} 
-		else {
-			if (trigger == 1)
-			{
-				content[i] = ' ';
-				trigger = 0;
-				++backscale;
-			} else {
-				content[i - backscale] = content[i];
-			}	
-		};
 	};
-	// int length2 = strlen(dest);
-	// dest[length2] = '\0';
+
 	return content;
 };
 #endif
