@@ -5,11 +5,11 @@
 int find_occ(char *item, char **array) {
     int i;
     int count = 0;
-    int res = 0;
+    int match = 0;
 
     for (i = 0; array[i] != '\0'; i++) {
-        res = comparestr(item, array[i]);
-        if (res > 0) {
+        match = comparestr(item, array[i]);
+        if (match) {
             ++count;
         }
     }

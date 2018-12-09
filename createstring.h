@@ -13,17 +13,15 @@ char * makestring(int start, int end, char *content) {
 	int inc = 0;
 
 	for (i = start; i < end + 1; i++) {
-		if ((content[i] >= 32 && content[i] <= 47) || (content[i] >= 58 && content[i] <= 64)) {
-			
-		} else {
+		if (!((content[i] >= 33 && content[i] <= 47) || (content[i] >= 58 && content[i] <= 64))) {
 			pword[inc] = tolower(content[i]);
-			++inc;
-		}
+			++inc;	
+		} 
 	}
 	
 	pword[inc] = '\0';
 
-	// printf("\nWord: %s Add: %p\n", pword, &*pword);
+	// printf("\nWord: %s Add: %p - create\n", pword, &*pword);
 
 	return &*pword;
 };
